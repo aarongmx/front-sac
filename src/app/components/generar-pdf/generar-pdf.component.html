@@ -1,0 +1,110 @@
+<div class="container mt-3" id="contentToConvert">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="assets/sep.png" alt="sep" class="img-fluid" />
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="mt-5">
+                <img
+                    src="assets/nacional.png"
+                    alt="nacional"
+                    class="img-fluid"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-md-12 mt-5">
+            <h5>
+                Anexo XVI. Constancia de cumplimiento de actividad
+                complementaria
+            </h5>
+        </div>
+    </div>
+    <div class="row text-center mt-5">
+        <div class="col-md-12">
+            <p>"Hoja membretada Oficial"</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <p>C._________________________________________</p>
+            <p class="mt-3">
+                Jefe(A) del departamento de servicios escolares o su equivalente
+                en los institutos tecnológicos descentralizados.
+            </p>
+            <h6 class="mt-1">PRESENTE</h6>
+        </div>
+    </div>
+    <div class="row mt-5 text-justify">
+        <div class="col-md-12 mt-5 ">
+            <p class="tex">
+                El que suscribe __________________________________ por este
+                medio se permite hacer de su conocimiento que el estudiante
+                <strong
+                    >{{ alumno.nombres }} {{ alumno.apellidoPaterno }}
+                    {{ alumno.apellidoMaterno }}
+                </strong>
+                con numero de control: <strong>{{ alumno.noCtl }} </strong> de
+                la carrera de {{ alumno.carrera }} ha cumplido su actividad
+                complementaria con el nivel de desempeño: 5 y un valor numérico
+                de {{ valorFinal }} durante el periodo escolar:
+                {{ formulario.periodo }} con el valor curricular de 1 crédito.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <p>
+                Se extiende la presente en la__________ a los ___ dias de
+                ________ de 20__
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-md-12 mt-5">
+            <h6>ATENTAMENTE</h6>
+            <p class="mt-5">Sello</p>
+        </div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-md-12 mt-5"></div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-md-4">
+            <p>_________________________________________</p>
+            <h6>Nombre y firma del(de la)</h6>
+            <h6>Profesor(a) responsable</h6>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <p>__________________________________________</p>
+            <h6>VoBo. Del jefe(a) del</h6>
+            <h6>Departamento de_________________________</h6>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <p>c.c.p. Jefe(a) de Departamento Correspondiente</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <button
+                class="btn btn-danger btn-block mt-2"
+                (click)="generarPDF(alumno)"
+            >
+                Generar PDF</button
+            ><button
+                class="btn btn-danger btn-block mt-2"
+                (click)="generate()"
+            >
+                Generar PDF
+            </button>
+        </div>
+    </div>
+</div>

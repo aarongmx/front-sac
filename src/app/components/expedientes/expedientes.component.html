@@ -1,0 +1,153 @@
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">
+                    Registrar actividad
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form
+                    class="form"
+                    #registrarActividad="ngForm"
+                    (ngSubmit)="registrarAct(registrarActividad.value)"
+                >
+                    <div class="form-group">
+                        <label for="actividad" class="label">Actividad</label>
+                        <select name="actividad" class="form-control" ngModel>
+                            <option
+                                *ngFor="let actividad of getActividades()"
+                                [ngValue]="actividad.id"
+                                >{{ actividad.actividad }}</option
+                            >
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="periodo">Periodo</label>
+                        <select name="periodo" class="form-control" ngModel>
+                            <option value="E">Enero - Junio</option>
+                            <option value="A">Agosto - Diciembre</option>
+                        </select>
+                    </div>
+                    <input
+                        type="submit"
+                        value="Registrar"
+                        class="btn btn-primary"
+                    />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                >
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col table-responsive">
+            <h1>Expediente</h1>
+            <h2 class="mt-4">
+                {{ this.getAlumno().nombres }}
+                {{ this.getAlumno().apellidoPaterno }}
+                {{ this.getAlumno().apellidoMaterno }}
+            </h2>
+            <h6>{{ this.getAlumno().idCarrera }}</h6>
+            <h6 class="text-muted">No. Control: {{ getAlumno().noCtl }}</h6>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-9">
+            <h5>Actividades</h5>
+        </div>
+        <div class="col-lg-3 text-right">
+            <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+            >
+                + Registrar actividad
+            </button>
+        </div>
+
+        <div
+            class="col-lg-6 my-3"
+            *ngFor="let expediente of this.getExpedienteAlumno()"
+        >
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{
+                            this.getActividad(expediente.idActividad).actividad
+                        }}
+                    </h5>
+                    <p *ngIf="expediente.finalizada">
+                        <b>Oficio:</b> {{ expediente.noOficio }}
+                    </p>
+                    <p>
+                        <b>Estado de la actividad: </b>
+                        {{ !expediente.finalizada ? "En Curso" : "Finalizada" }}
+                    </p>
+                    <p *ngIf="expediente.finalizada">
+                        <b>Fecha de expedición: </b>
+                        {{ expediente.fechaExpedicion | date: "dd/MMMM/yyyy" }}
+                    </p>
+                    <p *ngIf="expediente.finalizada">
+                        <b>Califiación final: </b>{{ expediente.calificacion }}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button
+                        class="btn btn-primary"
+                        *ngIf="expediente.finalizada"
+                        (click)="
+                            downloadPDF(
+                                getAlumno(),
+                                expediente,
+                                getActividad(expediente.idActividad)
+                            )
+                        "
+                    >
+                        Descargar PDF
+                    </button>
+                    <button
+                        class="btn btn-outline-primary"
+                        *ngIf="!expediente.finalizada"
+                        (click)="
+                            registrarEvaluacion(
+                                expediente,
+                                getAlumno(),
+                                getActividad(expediente.idActividad)
+                            )
+                        "
+                    >
+                        Registrar evaluación
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 73RdhBo$dbzP)DDbUo3X -->

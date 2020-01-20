@@ -1,0 +1,171 @@
+<app-navbar></app-navbar>
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h3>
+                ANEXO XVII. FORMATO DE EVALUACIÓN AL DESEMPEÑO DE LA ACTIVIDAD
+                COMPLEMENTARIA
+            </h3>
+            <hr />
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-9"></div>
+        <div class="col-md-3 flex-last text-danger">
+            <!-- <button class="btn btn-dark ">Regresar</button> -->
+            <a [routerLink]="['/home']">
+                <img
+                    src="assets/flecha-izquierda.png"
+                    class="img-fluid"
+                    alt="atras"
+                />
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>Nombre del estudiante:</p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        {{ getAlumno().nombres }}
+                        {{ getAlumno().apellidoPaterno }}
+                        {{ getAlumno().apellidoMaterno }}
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <p>Actividad:</p>
+                </div>
+                <div class="col-md-8">
+                    {{ getActividad().actividad }}
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <p>Periodo de realización</p>
+                </div>
+                <div class="col-md-8">
+                    <select
+                        class="custom-select"
+                        name="periodo"
+                        [(ngModel)]="formulario.periodo"
+                    >
+                        <option selected>Selecciona el Periodo</option>
+                        <option value="Enero-Junio">Enero-Junio</option>
+                        <option value="Agosto-Diciembre"
+                            >Agosto-Diciembre</option
+                        >
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <p>Año de relización:</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            ngModel
+                            name="year"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Criterios a Evaluar</th>
+                            <th scope="col">Insuficiente</th>
+                            <th scope="col">Suficiente</th>
+                            <th scope="col">Bueno</th>
+                            <th scope="col">Notable</th>
+                            <th scope="col">Excelente</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="container">
+                    <div class="row conta" *ngFor="let info of _dataCriterio">
+                        <div class="col-md-1">
+                            <h6 class="font-weight-bold">
+                                {{ info.No }}
+                            </h6>
+                        </div>
+                        <div class="col-md-4 letra">
+                            <p>{{ info.Criterio }}</p>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row">
+                                <mat-radio-group
+                                    class="example-radio-group"
+                                    [name]="'c' + info.No"
+                                >
+                                    <mat-radio-button
+                                        class="example-radio-button uno ml-3"
+                                        *ngFor="let v of _valor"
+                                        [value]="v"
+                                        (change)="calcular($event)"
+                                    >
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p><strong>Observaciones:</strong></p>
+                        </div>
+                        <div class="col-md-9">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Observaciones"
+                                [(ngModel)]="formulario.observaciones"
+                            />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <p>
+                                <strong
+                                    >Nivel de desempeño alcanzado en las
+                                    actividades:
+                                </strong>
+                                {{ this.resultado }}
+                            </p>
+                            <p>
+                                <b>Desempeño: </b>
+                                {{ this.desemp }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button
+                            class="btn btn-danger btn-block"
+                            type="button"
+                            name="button"
+                            (click)="limpiarCalculo()"
+                        >
+                            Limpiar Calculo
+                        </button>
+                        <button
+                            class="btn btn-danger btn-block"
+                            type="button"
+                            name="button"
+                            (click)="enviaForm()"
+                        >
+                            Siguiente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

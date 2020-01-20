@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container my-5">
+    <div class="row">
+        <div class="col">
+            <input
+                class="in mt-1"
+                name="buscar"
+                [(ngModel)]="buscar"
+                placeholder="Busca por  N.Control o Nombre"
+            />
+        </div>
+    </div>
+    <div class="row mt-2" style="overflow-y: scroll;height: 300px;">
+        <div class="col-md">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Número de control</th>
+                        <th scope="col">Nombre completo</th>
+                        <th scope="col">Carrera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let alumno of this.getAlumnos()"
+                        (click)="enviaAlumno(alumno)"
+                    >
+                        <th class="cursor-pointer" scope="row">
+                            {{ alumno.noCtl }}
+                        </th>
+                        <td class="cursor-pointer">
+                            {{ alumno.nombres }} {{ alumno.apellidoPaterno }}
+                            {{ alumno.apellidoMaterno }}
+                        </td>
+                        <td class="cursor-pointer">{{ alumno.idCarrera }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

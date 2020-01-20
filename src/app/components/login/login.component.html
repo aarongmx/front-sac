@@ -1,0 +1,91 @@
+<div class="container-fluid bg-image">
+    <header class="row">
+        <div class="col">
+            <h4 class="text-white mt-5">Tecnológico Nacional de México</h4>
+            <hr class="bg-white" />
+        </div>
+    </header>
+    <section class="contenedor-main row mb-3">
+        <main class="col-md-8">
+            <section class="row align-items-end ">
+                <div class="col-md-12  col-lg-4 caja">
+                    <h3>{{ planteles }}</h3>
+                    <p>Planteles</p>
+                </div>
+
+                <div class="col-md-12 col-lg-4 caja">
+                    <h3>{{ alumnos }}</h3>
+                    <p>Estudiantes</p>
+                </div>
+                <div class="col-md-12 col-lg-4 caja">
+                    <h3>{{ docentes }}</h3>
+                    <p>Docentes</p>
+                </div>
+            </section>
+        </main>
+
+        <aside class="col-md-4 align-self-start">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-8">
+                    <h4 class="text-white text-center">Plantel Iztapalapa</h4>
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-md-6 col-sm-4 col-xs-4">
+                            <img
+                                src="assets/tec2.png"
+                                alt="login"
+                                class="img-fluid"
+                            />
+                        </div>
+                    </div>
+                    <form
+                        ngNativeValidate
+                        [formGroup]="forma"
+                        (ngSubmit)="entrar()"
+                        class="mt-5 mb-5"
+                    >
+                        <div class="form-group">
+                            <label class="mt-1 text-white">Usuario</label>
+                            <input
+                                type="text"
+                                formControlName="usuario"
+                                name="usuario"
+                                class="form-control"
+                                autocomplete="off"
+                                placeholder="Usuario"
+                                required
+                                autofocus
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="mt-1 text-white" for="inputPassword"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                formControlName="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Contraseña"
+                                required
+                            />
+                        </div>
+
+                        <button
+                            class="btn btn-lg btn-primary btn-block"
+                            type="submit"
+                        >
+                            Iniciar Sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <footer class="row mt-2">
+        <div class="col ">
+            <h4>@tecnm.mx</h4>
+        </div>
+    </footer>
+</div>

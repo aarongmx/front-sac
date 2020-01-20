@@ -1,0 +1,48 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <h1>Registrar Alumno</h1>
+            <form
+                #registroAlumno="ngForm"
+                (ngSubmit)="registrar(registroAlumno.value)"
+            >
+                <div class="form-group">
+                    <label for="noCtl">Número de control</label>
+                    <input type="number" name="noCtl" class="form-control" ngModel />
+                </div>
+
+                <div class="form-group">
+                    <label for="nombres" class="label">Nombre(s)</label>
+                    <input type="text" name="nombres" class="form-control" ngModel />
+                </div>
+
+                <div class="form-group">
+                    <label for="apellidoPaterno" class="label">Apellido paterno</label>
+                    <input type="text" name="apellidoPaterno" class="form-control" ngModel />
+                </div>
+
+                <div class="form-group">
+                    <label for="apellidoMaterno" class="label">Apellido materno</label>
+                    <input type="text" name="apellidoMaterno" class="form-control" ngModel />
+                </div>
+
+                <div class="form-group">
+                    <label for="idCarrera" class="label">Carrera</label>
+                    <select name="idCarrera" class="form-control" ngModel>
+                        <option
+                            value="{{ carrera.id }}"
+                            *ngFor="let carrera of getCarreras()"
+                            >{{ carrera.nombre }}</option
+                        >
+                    </select>
+                </div>
+
+                <input
+                    type="submit"
+                    value="Registrar"
+                    class="btn btn-primary"
+                />
+            </form>
+        </div>
+    </div>
+</div>
