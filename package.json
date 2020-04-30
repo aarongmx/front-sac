@@ -27,7 +27,7 @@
         "docx-pdf": "^0.0.1",
         "docxtemplater": "^3.16.7",
         "file-saver": "^2.0.2",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "jszip-utils": "^0.1.0",
         "moment": "^2.24.0",
         "ng-angular8-datatable": "^0.9.11",
