@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { FormGroup, FormControl } from '@angular/forms'
-import * as Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
 
 @Component({
@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
     docentes: number
     forma: FormGroup
     constructor(private router: Router) {
-        let obser = new Observable(observer => {
+        const obser = new Observable(observer => {
             let contador = 1
-            let intervalo = setInterval(() => {
+            const intervalo = setInterval(() => {
                 contador += 1
                 observer.next(contador)
                 if (contador === 870) {
@@ -31,11 +31,10 @@ export class LoginComponent implements OnInit {
             this.planteles = dato
             // console.log(this.planteles);
         })
-        //*************************************** */
 
-        let obser2 = new Observable(observer => {
+        const obser2 = new Observable(observer => {
             let contador = 1
-            let intervalo = setInterval(() => {
+            const intervalo = setInterval(() => {
                 contador += 1
                 observer.next(contador)
                 if (contador === 3170) {
@@ -49,11 +48,10 @@ export class LoginComponent implements OnInit {
             this.alumnos = dato
             console.log(this.alumnos)
         })
-        //*************/
 
-        let obser3 = new Observable(observer => {
+        const obser3 = new Observable(observer => {
             let contador = 1
-            let intervalo = setInterval(() => {
+            const intervalo = setInterval(() => {
                 contador += 1
                 observer.next(contador)
                 if (contador === 30) {
@@ -77,11 +75,11 @@ export class LoginComponent implements OnInit {
 
     entrar() {
         console.log(this.forma.value)
-        Swal.fire({
-            title: 'Has Ingresado al Sistema?',
-            text: `Con el Usuario:  ${this.forma.value.usuario}?`,
-            type: 'success'
-        })
+        // Swal.fire({
+        //     title: 'Has Ingresado al Sistema?',
+        //     text: `Con el Usuario:  ${this.forma.value.usuario}?`,
+        //     type: 'success'
+        // })
         this.router.navigate(['/home'])
     }
 

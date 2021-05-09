@@ -1,4 +1,4 @@
-import { ExpedientesService } from './expedientes.service'
+// import { ExpedientesService } from './expedientes.service'
 import { Actividades } from './../models/actividades'
 import { Expedientes } from './../models/expedientes'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs'
 export class ExpedientesService {
     private _expediente: Expedientes
 
-    private _srcExpediente = new BehaviorSubject(this._expediente)
+    private _srcExpediente = new BehaviorSubject({ id: this._expediente.id })
     currentExpediente = this._srcExpediente.asObservable()
 
     constructor(private _http: HttpClient) { }
