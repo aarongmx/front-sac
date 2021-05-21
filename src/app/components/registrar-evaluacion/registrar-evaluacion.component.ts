@@ -19,7 +19,7 @@ import { Formulario } from '../../models/formulario'
 export class RegistrarEvaluacionComponent implements OnInit {
     private _alumno: Alumnos
     private _actividad: Actividades
-    private _expediente: Expedientes
+    private _expediente: Expedientes = null
     _dataCriterio: any[] = [];
     private _sumaTotal: number[] = [];
     _valor = [0, 1, 2, 3, 4];
@@ -46,7 +46,7 @@ export class RegistrarEvaluacionComponent implements OnInit {
         actividad: null,
         periodo: null,
         observaciones: null,
-        resultado: this._resultado
+        resultado: null
     };
 
     constructor(private _data: DataTec,
@@ -60,7 +60,7 @@ export class RegistrarEvaluacionComponent implements OnInit {
         this._service.currentAlumno.subscribe(alumno => this._alumno = alumno)
         this._dataCriterio = this._data.getDataTec()
         this._serviceActividades.currentActividad.subscribe(actividad => this._actividad = actividad)
-        this._serviceExpedientes.currentExpediente.subscribe(data => this._expediente = data)
+        this._serviceExpedientes.currentExpediente.subscribe(data => this._expediente)
     }
 
     getAlumno() {

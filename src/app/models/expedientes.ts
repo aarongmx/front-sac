@@ -1,5 +1,5 @@
 export interface Expedientes {
-    id: Number
+    id: any
     noOficio: String
     fechaExpedicion: Date
     periodo: String

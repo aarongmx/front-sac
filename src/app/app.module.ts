@@ -12,6 +12,12 @@ import { TecService } from './services/tec.service'
 import { FiltroPipe } from './pipes/filtro.pipe'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { GenerarPDFComponent } from './components/generar-pdf/generar-pdf.component'
+import {
+    MatProgressBarModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule
+} from '@angular/material'
 import { LoginComponent } from './components/login/login.component'
 import { InformacionComponent } from './components/informacion/informacion.component'
 import { ExpedientesComponent } from './components/expedientes/expedientes.component'
@@ -40,8 +46,12 @@ import { RegistrarAlumnoComponent } from './components/registrar-alumno/registra
         APP_ROUTES,
         FormsModule,
         HttpClientModule,
+        MatRadioModule,
+        MatRippleModule,
+        MatSelectModule,
         FormsModule,
         ReactiveFormsModule,
+        MatProgressBarModule,
         BrowserAnimationsModule
     ],
     providers: [

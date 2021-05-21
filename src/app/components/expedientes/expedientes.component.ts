@@ -6,7 +6,7 @@ import { Expedientes } from './../../models/expedientes'
 import { ExpedientesService } from './../../services/expedientes.service'
 import { Component, OnInit } from '@angular/core'
 import { Alumnos } from 'src/app/models/alumnos'
-import * as docxtemplater from 'docxtemplater/js/docxtemplater'
+import Docxtemplater from 'docxtemplater/js/docxtemplater'
 import * as moment from 'moment'
 import 'moment/locale/es'
 import * as PizZip from 'pizzip/es6'
@@ -68,7 +68,7 @@ export class ExpedientesComponent implements OnInit {
             }
 
             const zip = new PizZip(ctn)
-            const doc = new docxtemplater().loadZip(zip)
+            const doc = new Docxtemplater().loadZip(zip)
 
             doc.setData({
                 numero_documento: '0567/2020',

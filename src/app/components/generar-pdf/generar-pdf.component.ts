@@ -1,10 +1,11 @@
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'
 import { PizZip, PizZipUtils } from 'pizzip'
-import { Docxtemplater } from 'docxtemplater'
+import Docxtemplater from 'docxtemplater'
 import { Component, OnInit } from '@angular/core'
 import { TecService } from '../../services/tec.service'
 import { Alumnos } from '../../models/alumnos'
 import { Formulario } from '../../models/formulario'
+import { saveAs } from 'file-saver'
 
 
 
@@ -93,7 +94,7 @@ export class GenerarPDFComponent implements OnInit {
             }
 
             const zip = new PizZip(content)
-            const doc = new Docxtemplater.loadZip(zip)
+            const doc = new Docxtemplater().loadZip(zip)
 
             doc.setData({
 
@@ -110,7 +111,7 @@ export class GenerarPDFComponent implements OnInit {
                 mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             })
 
-            doc.saveAs(out, 'out.docx')
+            saveAs(out, 'out.docx')
 
         })
 

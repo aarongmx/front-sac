@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs'
     providedIn: 'root'
 })
 export class ExpedientesService {
-    private _expediente: Expedientes
+    private _expediente: Expedientes = null
 
     private _srcExpediente = new BehaviorSubject({ id: this._expediente.id })
     currentExpediente = this._srcExpediente.asObservable()
