@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 export class HomeComponent implements OnInit {
     private _alumno: Alumnos
     private _alumnos: Alumnos[]
-    private _buscar = ''
+    buscar:string = ''
 
     constructor(private _service: AlumnoService,
         private _router: Router) {
