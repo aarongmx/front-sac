@@ -12,12 +12,10 @@ import { TecService } from './services/tec.service'
 import { FiltroPipe } from './pipes/filtro.pipe'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { GenerarPDFComponent } from './components/generar-pdf/generar-pdf.component'
-import {
-    MatProgressBarModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule
-} from '@angular/material'
+import { MatRippleModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './components/login/login.component'
 import { InformacionComponent } from './components/informacion/informacion.component'
 import { ExpedientesComponent } from './components/expedientes/expedientes.component'
