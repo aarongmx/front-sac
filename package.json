@@ -31,7 +31,7 @@
     "jszip-utils": "^0.1.0",
     "moment": "^2.24.0",
     "ng-angular8-datatable": "^0.9.11",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "pizzip": "^3.0.6",
     "popper.js": "^1.16.0",
     "rxjs": "~6.5.4",
